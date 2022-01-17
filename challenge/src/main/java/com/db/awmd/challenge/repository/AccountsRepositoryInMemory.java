@@ -4,7 +4,6 @@ import com.db.awmd.challenge.domain.Account;
 import com.db.awmd.challenge.exception.DuplicateAccountIdException;
 import com.db.awmd.challenge.exception.InvalidAccountIdException;
 import com.db.awmd.challenge.exception.LowAccountBalanceException;
-import com.db.awmd.challenge.service.AccountsService;
 import com.db.awmd.challenge.service.NotificationService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +19,7 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 public class AccountsRepositoryInMemory implements AccountsRepository {
 
+	@Autowired
 	private final NotificationService notificationService;
 	  
 	 @Autowired
@@ -86,7 +86,7 @@ public BigDecimal deposit(String fromAccountId, String toAccountId, BigDecimal a
 	Account withDrawAccount  = getAccount(fromAccountId);
 	
 	if(withDrawAccount!=null) {
-		this.notificationService.notifyAboutTransfer(withDrawAccount, "Amount being transfered from account"+depositAccount.getAccountId()+" is "+amount);
+		this.notificationService.notifyAboutTransfer(depositAccount, "Amount being transfered from account"+depositAccount.getAccountId()+" is "+amount);
 	}
 	// Check if account exists in order to deposit funds
 	if(depositAccount!=null) {

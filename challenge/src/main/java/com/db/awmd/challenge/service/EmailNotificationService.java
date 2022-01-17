@@ -9,13 +9,12 @@ import com.db.awmd.challenge.domain.Account;
 @Service
 public class EmailNotificationService implements NotificationService {
 
-    Logger log = LoggerFactory.getLogger(EmailNotificationService.class);
+	Logger log = LoggerFactory.getLogger(EmailNotificationService.class);
 
-  @Override
-  public void notifyAboutTransfer(Account account, String transferDescription) {
-    //THIS METHOD SHOULD NOT BE CHANGED - ASSUME YOUR COLLEAGUE WILL IMPLEMENT IT
-    log
-      .info("Sending notification to owner of {}: {}", account.getAccountId(), transferDescription);
-  }
+	@Override
+	public void notifyAboutTransfer(Account account, String transferDescription) {
+		// THIS METHOD SHOULD NOT BE CHANGED - ASSUME YOUR COLLEAGUE WILL IMPLEMENT IT
+		log.info("Sending notification to owner of {}: {}", account.getAccountId(), transferDescription);
+	}
 
 }

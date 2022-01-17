@@ -1,5 +1,4 @@
 package com.db.awmd.challenge;
-
 import com.db.awmd.challenge.domain.Account;
 import com.db.awmd.challenge.exception.DuplicateAccountIdException;
 import com.db.awmd.challenge.exception.InvalidAccountIdException;
